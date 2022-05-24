@@ -1,0 +1,21 @@
+#compTweet {
+  font-size:large;
+}
+
+#tweetText {
+  width: 100%;
+  background-color: transparent;
+  border-width: 0 0 3px;
+}
+
+#tweetButton {
+  font-family: 'Bungee';
+  background-color: #4056A1;
+  color: white;
+  border-color: transparent;
+}
+
+.counter {
+  float: right;
+  font-family: 'Bungee';
+}

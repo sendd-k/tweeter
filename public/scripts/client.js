@@ -3,17 +3,32 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-const tweetData =   {
-  "user": {
-    "name": "Newton",
-    "avatars": "https://i.imgur.com/73hZDYK.png",
-    "handle": "@SirIsaac"
+$(document).ready(function() {
+const data = [
+  {
+    "user": {
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png",
+      "handle": "@SirIsaac"
+    },
+    "content": {
+      "text": "If I have seen further it is by standing on the shoulders of giants"
+    },
+    "created_at": 1653343450440
   },
-  "content": {
-    "text": "If I have seen further it is by standing on the shoulders of giants"
-  },
-  "created_at": 1653276720846
-}
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@rd"
+    },
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1653429850440
+  }
+]
+
 
 
 const createTweetElement = function(data) {
@@ -44,12 +59,14 @@ const createTweetElement = function(data) {
 };
 
 
-$(document).ready(function() {
+const renderTweets = function() {
+  for(let tweet of data) {
+    $('#tweetContainer').append(createTweetElement(tweet))
+  }
+}
 
-  const $tweet = createTweetElement(tweetData);
+renderTweets()
+})
 
- 
-  console.log($tweet); 
-  $('#tweetContainer').append($tweet);
 
-}); 
+

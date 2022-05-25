@@ -2,7 +2,6 @@ $(document).ready(function() {
   $("#tweetText").on("keyup", function () {
     let maxLength = 140;
     const currentLength = $(this).val().length  
-    console.log(currentLength)
     let remainder = maxLength - currentLength
     $(".counter").text(remainder)
     if(currentLength > maxLength) {

@@ -3,7 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-const data =   {
+const tweetData =   {
   "user": {
     "name": "Newton",
     "avatars": "https://i.imgur.com/73hZDYK.png",
@@ -16,8 +16,8 @@ const data =   {
 }
 
 
-const createTweetElement = function(tweet) {
-  const $tweet = $(`<article class="tweetBody">
+const createTweetElement = function(data) {
+  const $tweet = `<article class="tweetBody">
   <header>
     <div class="tweetHeader">
       <div class="grid-child imgName">
@@ -38,7 +38,18 @@ const createTweetElement = function(tweet) {
       <i class="fa-solid fa-heart fa-2xs"></i>
     </span>
   </footer>
-</article>`)
+</article>`
 
   return $tweet;
 };
+
+
+$(document).ready(function() {
+
+  const $tweet = createTweetElement(tweetData);
+
+ 
+  console.log($tweet); 
+  $('#tweetContainer').append($tweet);
+
+}); 

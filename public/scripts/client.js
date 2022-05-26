@@ -29,7 +29,11 @@
 //   }
 // ]
 
-
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 const createTweetElement = function(data) {
   const $tweet = `<article class="tweetBody">
@@ -44,7 +48,7 @@ const createTweetElement = function(data) {
     </div>
   </div>
   </header>
-  <p class="tweetContent">${data.content.text}</p>
+  <p class="tweetContent">${escape(data.content.text)}</p>
   <footer class="tweetFooter">
     <span class="tweetDate">${timeago.format(data.created_at)}</span>
     <span class="tweetShare">
@@ -95,8 +99,8 @@ $(document).ready(function() {
       $(".errorMain").slideDown('fast');
     } else {
       $(".errorBlank").slideUp('fast');
-  $(".errorTooLong").slideUp('fast');
-  $(".errorMain").slideUp('fast');
+      $(".errorTooLong").slideUp('fast');
+      $(".errorMain").slideUp('fast');
     let tweet = $('form').serialize()
     $.ajax({ 
       url:"/tweets", 

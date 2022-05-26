@@ -31,3 +31,38 @@ body {
    width: 90%;
    height: 1000px;
  }
+
+ /* Breakpoint for desktops */
+@media only screen and (min-width: 1024px) {
+  .headMain {
+    background-color: #EF8354;
+    margin: 50px 0 0 25px;
+  }
+  nav{
+    background-color: #4F5D75;
+  }
+  .entire {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .container {
+    margin-top: 30px;
+  }
+}
+
+/* Breakpoint for tablets) */
+@media only screen and (max-width: 1023px) {
+  .headMain {
+    height: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #EF8354;
+  }
+nav {
+  background-color: #EF8354;;
+}
+  
+}

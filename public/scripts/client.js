@@ -55,7 +55,7 @@ const loadTweets = function() {
 
 $(document).ready(function() {
   loadTweets()
-
+  $("#tweetText").val("");
   
   $('form').on('submit', (evt) => {
     evt.preventDefault();
@@ -63,9 +63,11 @@ $(document).ready(function() {
     if (tweetLength === 140) {
       $(".errorBlank").slideDown('fast');
       $(".errorMain").slideDown('fast');
+      $(".errorTooLong").slideUp('fast');
     } else if (tweetLength < 0) {
       $(".errorTooLong").slideDown('fast');
       $(".errorMain").slideDown('fast');
+      $(".errorBlank").slideUp('fast');
     } else {
       $(".errorBlank").slideUp('fast');
       $(".errorTooLong").slideUp('fast');
@@ -86,5 +88,4 @@ $(document).ready(function() {
   $(".errorTooLong").hide();
   $(".errorMain").hide();
 })
-
 

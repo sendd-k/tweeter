@@ -15,12 +15,17 @@
   border-color: transparent;
 }
 
+#tweetButton:hover {
+  cursor: pointer;
+}
+
 .counter {
   float: right;
   font-family: 'Bungee';
+  color: black;
 }
 
-.tweetContainer:hover {
+.tweetBody:hover {
   box-shadow: 10px 5px 5px silver;
 }
 
@@ -44,7 +49,7 @@
   margin: .5em 0 0 1em;
 }
 
-.userName {
+.userHandle {
   float: right;
   color: silver;
   margin: 1.5em 1.5em 0 0;

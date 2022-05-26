@@ -29,7 +29,6 @@ body {
  .container {
    margin: 0 5% 0 5%;
    width: 90%;
-   height: 1000px;
  }
 
  /* Breakpoint for desktops */
@@ -37,6 +36,7 @@ body {
   .headMain {
     background-color: #EF8354;
     margin: 50px 0 0 25px;
+    max-width: 400px;
   }
   nav{
     background-color: #4F5D75;

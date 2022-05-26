@@ -6,6 +6,7 @@
   width: 100%;
   background-color: transparent;
   border-width: 0 0 3px;
+  outline: none;
 }
 
 #tweetButton {

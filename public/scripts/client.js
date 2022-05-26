@@ -26,22 +26,18 @@ const createTweetElement = function(data) {
       <i class="fa-solid fa-heart fa-2xs"></i>
     </span>
   </footer>
-</article>`
+</article>`;
 
   return $tweet;
 };
 
 
 const renderTweets = function(tweets) {
-  $('#tweetContainer').empty()
-  for(let tweet of tweets) {
-    //$('#tweetContainer').empty()
-    //console.log('from render tweets', tweet)
-    $('#tweetContainer').prepend(createTweetElement(tweet))
-    //$('#tweetContainer').empty()
-    
+  $('#tweetContainer').empty();
+  for (let tweet of tweets) {
+    $('#tweetContainer').prepend(createTweetElement(tweet));
   }
-}
+};
 
 const loadTweets = function() {
   $.ajax({
@@ -49,13 +45,13 @@ const loadTweets = function() {
     type: "GET",
     dataType: "json",
     success: function(data) {
-      renderTweets(data)
+      renderTweets(data);
     },
-})
-}
+  });
+};
 
 $(document).ready(function() {
-  loadTweets()
+  loadTweets();
 
   $('form').on('submit', (evt) => {
     
@@ -80,22 +76,22 @@ $(document).ready(function() {
       $(".errorMain").slideUp('fast');
       
     
-    let tweet = $('form').serialize()
-    $.ajax({ 
-      url:"/tweets", 
-      type: "POST",
-      data: tweet,
-      success: function() {
-        loadTweets()
-      }
-    })
-    $("#tweetText").val("");
-  }
-  })
+      let tweet = $('form').serialize();
+      $.ajax({
+        url:"/tweets",
+        type: "POST",
+        data: tweet,
+        success: function() {
+          loadTweets();
+        }
+      });
+      $("#tweetText").val("");
+    }
+  });
   
   $(".errorBlank").hide();
   $(".errorTooLong").hide();
   $(".errorMain").hide();
   
-})
+});
 

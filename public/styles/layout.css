@@ -51,7 +51,7 @@ body {
   }
 }
 
-/* Breakpoint for tablets) */
+/* Breakpoint for tablets */
 @media only screen and (max-width: 1023px) {
   .headMain {
     height: 400px;

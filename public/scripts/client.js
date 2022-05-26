@@ -42,6 +42,7 @@ const renderTweets = function(tweets) {
     
   }
 }
+
 const loadTweets = function() {
   $.ajax({
     url: "/tweets",
@@ -55,9 +56,10 @@ const loadTweets = function() {
 
 $(document).ready(function() {
   loadTweets()
-  $("#tweetText").val("");
-  
+
   $('form').on('submit', (evt) => {
+    
+    
     evt.preventDefault();
     const tweetLength = Number($('output.counter').val());
     if (tweetLength === 140) {
@@ -69,6 +71,7 @@ $(document).ready(function() {
       $(".errorMain").slideDown('fast');
       $(".errorBlank").slideUp('fast');
     } else {
+      
       $(".errorBlank").slideUp('fast');
       $(".errorTooLong").slideUp('fast');
       $(".errorMain").slideUp('fast');
@@ -87,5 +90,7 @@ $(document).ready(function() {
   $(".errorBlank").hide();
   $(".errorTooLong").hide();
   $(".errorMain").hide();
+  
 })
+
 

@@ -60,10 +60,11 @@ const createTweetElement = function(data) {
 
 
 const renderTweets = function(tweets) {
+  $('#tweetContainer').empty()
   for(let tweet of tweets) {
     //$('#tweetContainer').empty()
     //console.log('from render tweets', tweet)
-    $('#tweetContainer').append(createTweetElement(tweet))
+    $('#tweetContainer').prepend(createTweetElement(tweet))
     //$('#tweetContainer').empty()
     
   }
@@ -83,7 +84,7 @@ $(document).ready(function() {
   loadTweets()
   $('form').on('submit', (evt) => {
     evt.preventDefault();
-    const tweetLength = Number($( 'output.counter' ).val());
+    const tweetLength = Number($('output.counter').val());
     if (tweetLength === 140) {
       alert("Tweets cannot be blank!");
       return;

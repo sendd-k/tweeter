@@ -50,6 +50,10 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        <section class="errorMain">
+          <div class="errorBlank"><i class="fa-solid fa-circle-xmark"></i>Tweet cannot be blank</div>
+          <div class="errorTooLong"><i class="fa-solid fa-circle-xmark"></i>Tweet length cannot exceed 140 characters</div>
+        </section>
         <h2 id="compTweet">Compose Tweet</h2>
         <form action="/tweets" method="post">
           <label for="tweet-text"></label>

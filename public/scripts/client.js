@@ -82,16 +82,21 @@ const loadTweets = function() {
 
 $(document).ready(function() {
   loadTweets()
+
+  
   $('form').on('submit', (evt) => {
     evt.preventDefault();
     const tweetLength = Number($('output.counter').val());
     if (tweetLength === 140) {
-      alert("Tweets cannot be blank!");
-      return;
+      $(".errorBlank").slideDown('fast');
+      $(".errorMain").slideDown('fast');
     } else if (tweetLength < 0) {
-      alert("Tweets can only be 140 characters in length");
-      return;
-    }
+      $(".errorTooLong").slideDown('fast');
+      $(".errorMain").slideDown('fast');
+    } else {
+      $(".errorBlank").slideUp('fast');
+  $(".errorTooLong").slideUp('fast');
+  $(".errorMain").slideUp('fast');
     let tweet = $('form').serialize()
     $.ajax({ 
       url:"/tweets", 
@@ -101,8 +106,12 @@ $(document).ready(function() {
         loadTweets()
       }
     })
+  }
   })
   
+  $(".errorBlank").hide();
+  $(".errorTooLong").hide();
+  $(".errorMain").hide();
 })
 
 

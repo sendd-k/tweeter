@@ -50,6 +50,10 @@ body {
     margin-top: 30px;
   }
 }
+.tweetContent {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
 
 /* Breakpoint for tablets */
 @media only screen and (max-width: 1023px) {
@@ -64,5 +68,8 @@ body {
 nav {
   background-color: #EF8354;;
 }
-  
+.tweetContent {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
 }

@@ -29,10 +29,8 @@
 }
 
 .tweetContent {
-  padding-left: 1em;
+  padding: 0 .5em 0 1em;
   font-weight: bold;
-  white-space: pre-wrap;
-  overflow-wrap: break-word;
 }
 
 .tweetFooter {

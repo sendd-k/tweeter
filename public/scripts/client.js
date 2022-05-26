@@ -61,6 +61,7 @@ $(document).ready(function() {
     
     
     evt.preventDefault();
+    
     const tweetLength = Number($('output.counter').val());
     if (tweetLength === 140) {
       $(".errorBlank").slideDown('fast');
@@ -72,9 +73,13 @@ $(document).ready(function() {
       $(".errorBlank").slideUp('fast');
     } else {
       
+      $(".counter").val(140);
+      
       $(".errorBlank").slideUp('fast');
       $(".errorTooLong").slideUp('fast');
       $(".errorMain").slideUp('fast');
+      
+    
     let tweet = $('form').serialize()
     $.ajax({ 
       url:"/tweets", 
@@ -84,6 +89,7 @@ $(document).ready(function() {
         loadTweets()
       }
     })
+    $("#tweetText").val("");
   }
   })
   
@@ -92,5 +98,4 @@ $(document).ready(function() {
   $(".errorMain").hide();
   
 })
-
 

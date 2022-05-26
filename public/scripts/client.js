@@ -1,4 +1,4 @@
-const escape = function (str) {
+const escape = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -31,11 +31,10 @@ const createTweetElement = function(data) {
   return $tweet;
 };
 
-
 const renderTweets = function(tweets) {
-  $('#tweetContainer').empty();
+  $("#tweetContainer").empty();
   for (let tweet of tweets) {
-    $('#tweetContainer').prepend(createTweetElement(tweet));
+    $("#tweetContainer").prepend(createTweetElement(tweet));
   }
 };
 
@@ -53,45 +52,39 @@ const loadTweets = function() {
 $(document).ready(function() {
   loadTweets();
 
-  $('form').on('submit', (evt) => {
-    
-    
+  $("form").on("submit", (evt) => {
     evt.preventDefault();
-    
-    const tweetLength = Number($('output.counter').val());
+
+    const tweetLength = Number($("output.counter").val());
     if (tweetLength === 140) {
-      $(".errorBlank").slideDown('fast');
-      $(".errorMain").slideDown('fast');
-      $(".errorTooLong").slideUp('fast');
+      $(".errorBlank").slideDown("fast");
+      $(".errorMain").slideDown("fast");
+      $(".errorTooLong").slideUp("fast");
     } else if (tweetLength < 0) {
-      $(".errorTooLong").slideDown('fast');
-      $(".errorMain").slideDown('fast');
-      $(".errorBlank").slideUp('fast');
+      $(".errorTooLong").slideDown("fast");
+      $(".errorMain").slideDown("fast");
+      $(".errorBlank").slideUp("fast");
     } else {
-      
       $(".counter").val(140);
-      
-      $(".errorBlank").slideUp('fast');
-      $(".errorTooLong").slideUp('fast');
-      $(".errorMain").slideUp('fast');
-      
-    
-      let tweet = $('form').serialize();
+
+      $(".errorBlank").slideUp("fast");
+      $(".errorTooLong").slideUp("fast");
+      $(".errorMain").slideUp("fast");
+
+      let tweet = $("form").serialize();
       $.ajax({
-        url:"/tweets",
+        url: "/tweets",
         type: "POST",
         data: tweet,
         success: function() {
           loadTweets();
-        }
+        },
       });
       $("#tweetText").val("");
     }
   });
-  
+
   $(".errorBlank").hide();
   $(".errorTooLong").hide();
   $(".errorMain").hide();
-  
 });
-

@@ -1,5 +1,5 @@
 #compTweet {
-  font-size:large;
+  font-size: large;
 }
 
 #tweetText {
@@ -10,8 +10,8 @@
 }
 
 #tweetButton {
-  font-family: 'Bungee';
-  background-color: #4F5D75;
+  font-family: "Bungee";
+  background-color: #4f5d75;
   color: white;
   border-color: transparent;
 }
@@ -22,7 +22,7 @@
 
 .counter {
   float: right;
-  font-family: 'Bungee';
+  font-family: "Bungee";
   color: black;
 }
 
@@ -40,4 +40,3 @@
 .error .fa-solid {
   padding: 0 10px 0 10px;
 }
-

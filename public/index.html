@@ -30,47 +30,54 @@
   </head>
 
   <body>
-    <!-- Top nav bar (fixed) -->
+    <!-- HTML location for fixed navbar -->
     <nav class="navBar">
         <span id="navTitle">tweeter</span>
       <div class="navNew" style="text-align: center;">
         <button class="composeButton">
           <strong>Write</strong> a new tweet<br>
-        <i class="fa-solid fa-angles-down"></i>
-      </button>
-    </div>
+          <i class="fa-solid fa-angles-down"></i>
+        </button>
+      </div>
     </nav>
     <div class="entire">
-    <header class="headMain" style="z-index: -1">
-      <div class="headIMG">
+      <!-- HTML location for the header-->
+      <header class="headMain" style="z-index: -1">
+        <div class="headIMG">
           <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div id="headName">
+        </div>
+          <br>
+        <div id="headName">
           <h2>John Wayne</h2>
-      </div>
-  </header>
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <section class="errorMain">
-          <div class="errorBlank"><i class="fa-solid fa-circle-xmark"></i>Tweet cannot be blank</div>
-          <div class="errorTooLong"><i class="fa-solid fa-circle-xmark"></i>Tweet length cannot exceed 140 characters</div>
+        </div>
+      </header>
+      <!-- HTML location for the new tweet/tweet body -->
+      <main class="container">
+        <section class="new-tweet">
+          <!-- HTML location for the error messages-->
+          <section class="errorMain">
+            <div class="errorBlank">
+              <i class="fa-solid fa-circle-xmark"></i>Tweet cannot be blank
+            </div>
+            <div class="errorTooLong">
+              <i class="fa-solid fa-circle-xmark"></i>Tweet length cannot exceed 140 characters
+            </div>
+          </section>
+          <!-- HTML location for the new tweet form-->
+          <h2 id="compTweet">Compose Tweet</h2>
+          <form action="/tweets" method="post">
+            <label for="tweet-text"></label>
+            <textarea name="text" id="tweetText" placeholder="What are you humming about?"></textarea>
+            <div>
+              <button id="tweetButton" type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
         </section>
-        <h2 id="compTweet">Compose Tweet</h2>
-        <form action="/tweets" method="post">
-          <label for="tweet-text"></label>
-          <textarea name="text" id="tweetText" placeholder="What are you humming about?"></textarea>
-          <div>
-            <button id="tweetButton" type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
-      <section id="tweetContainer">
-  
-    </section>
-    </main>
+        <!-- HTMl location for the tweets-->
+        <section id="tweetContainer">
+        </section>
+      </main>
+    </div>
   </body>
-</div>
 </html>

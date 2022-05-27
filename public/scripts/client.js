@@ -1,23 +1,25 @@
+//Function for XSS 
 const escape = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
+//Function for creating the tweet w/HTML
 const createTweetElement = function(data) {
   const $tweet = `<article class="tweetBody">
   <header>
     <div class="tweetHeader">
-      <div class="grid-child imgName">
-    <img class="userIMG" src=${data.user.avatars}>
-    <p class="userName">${data.user.name}</p>
-  </div>
-  <div class="grid-child">
-    <span class="userHandle">${data.user.handle}</span>
+        <div class="grid-child imgName">
+          <img class="userIMG" src=${data.user.avatars}>
+          <p class="userName">${data.user.name}</p>
+        </div>
+      <div class="grid-child">
+        <span class="userHandle">${data.user.handle}</span>
+      </div>
     </div>
-  </div>
   </header>
-  <p class="tweetContent">${escape(data.content.text)}</p>
+    <p class="tweetContent">${escape(data.content.text)}</p>
   <footer class="tweetFooter">
     <span class="tweetDate">${timeago.format(data.created_at)}</span>
     <span class="tweetShare">
@@ -31,6 +33,7 @@ const createTweetElement = function(data) {
   return $tweet;
 };
 
+//Function to loop through database of tweets
 const renderTweets = function(tweets) {
   $("#tweetContainer").empty();
   for (let tweet of tweets) {
@@ -38,6 +41,7 @@ const renderTweets = function(tweets) {
   }
 };
 
+//Function for loading the tweets via AJAX request
 const loadTweets = function() {
   $.ajax({
     url: "/tweets",
@@ -53,8 +57,11 @@ $(document).ready(function() {
   loadTweets();
 
   $("form").on("submit", (evt) => {
+
+    //Prevents refresh on submit
     evt.preventDefault();
 
+    //Main tweet form validation w/ errors
     const tweetLength = Number($("output.counter").val());
     if (tweetLength === 140) {
       $(".errorBlank").slideDown("fast");
@@ -65,13 +72,16 @@ $(document).ready(function() {
       $(".errorMain").slideDown("fast");
       $(".errorBlank").slideUp("fast");
     } else {
+      //Refreshes character counter
       $(".counter").val(140);
-
       $(".errorBlank").slideUp("fast");
       $(".errorTooLong").slideUp("fast");
       $(".errorMain").slideUp("fast");
 
+      //Creates readly text from form
       let tweet = $("form").serialize();
+
+      //Posts tweets via AJAX
       $.ajax({
         url: "/tweets",
         type: "POST",
@@ -80,6 +90,8 @@ $(document).ready(function() {
           loadTweets();
         },
       });
+
+      //Clears tweet form on submit
       $("#tweetText").val("");
     }
   });

@@ -1,3 +1,4 @@
+//Function for character counter
 $(document).ready(function() {
   $("#tweetText").on("keyup", function() {
     let maxLength = 140;
